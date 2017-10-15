@@ -1,0 +1,24 @@
+apply plugin: 'com.android.library'
+apply from: project.file('../androidrubick.module.gradle')
+apply from: project.file('../androidrubick.release.gradle')
+
+project.group = MAVEN_PROJECT_GROUP
+version = MAVEN_PROJECT_VERSION
+
+android {
+    defaultConfig {
+        versionCode MAVEN_PROJECT_VERSION_CODE as int
+        versionName MAVEN_PROJECT_VERSION
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled propertyTrue('SDK_MINIFY_ENABLED')
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+}
