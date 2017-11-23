@@ -17,11 +17,11 @@ def getRepositoryUrl() {
 }
 
 def getRepositoryUsername() {
-    return hasProperty('MVN_USER') ? property('MVN_USER') : "xiao.luo"
+    return hasProperty('MVN_USER') ? property('MVN_USER') : "foo"
 }
 
 def getRepositoryPassword() {
-    return hasProperty('MVN_PWD') ? property('MVN_PWD') : "PDG_newuser2"
+    return hasProperty('MVN_PWD') ? property('MVN_PWD') : "bar"
 }
 
 afterEvaluate { project ->
@@ -42,29 +42,29 @@ afterEvaluate { project ->
             }
 
             if (isReleaseBuild()) {
-                print "[${project.name}] build release"
+                ARLog('build release')
                 repository(url: getRepositoryUrl()) {
                     authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
                 }
             } else {
-                print "[${project.name}] build local"
+                ARLog('build local')
                 repository(url: getRepositoryUrl())
             }
 
-            println " version<${MAVEN_PROJECT_VERSION}>"
+            ARLog("version<${MAVEN_PROJECT_VERSION}>")
 
             pom.project {
                 name MAVEN_POM_NAME
                 artifactId MAVEN_POM_ARTIFACT_ID
                 packaging MAVEN_POM_PACKAGING
                 description "${MAVEN_POM_DESCRIPTION} [built at ${new Date().format('yyyyMMddHHmmssSSS')}]"
-                url 'https://vip.com'
+                url 'http://androidrubick.pub'
 
                 developers {
                     developer {
-                        id 'yong01.yin'
+                        id 'yong.yin'
                         name 'Yin Yong'
-                        email 'yong01.yin@vipshop.com'
+                        email 'yong.yin@androidrubick.pub'
                     }
                 }
             }

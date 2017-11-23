@@ -1,4 +1,15 @@
 // Add `ARLog` & `propertyTrue` to all projects
+/**
+ * 我们能像这样打印log:
+ * <pre>
+ *     ARLog("{msg1}", "{msg2}", ...)
+ * </pre>
+ *
+ * 我们能像这样判断一个property是否等价于true:
+ * <pre>
+ *     propertyTrue("{field name}")
+ * </pre>
+ */
 allprojects {
     project.ext.ARLog = { Object...msgs ->
         msgs.each { msg ->
@@ -31,7 +42,7 @@ def localRepoUrl = 'file://' + localRepoDir + '/'
 rootProject.extensions.add('LOCAL_MAVEN_CACHE_HOME', localMavenCacheHome.absolutePath)
 rootProject.extensions.add('LOCAL_REPO_URL', localRepoUrl)
 
-ARLog "LOCAL_REPO_URL: $LOCAL_REPO_URL"
+ARLog("LOCAL_REPO_URL: $LOCAL_REPO_URL")
 
 def static validProject(project) {
     if (project.group == null || project.group == '') {
@@ -62,7 +73,7 @@ allprojects {
                 subPath += MAVEN_POM_ARTIFACT_ID
                 def myLocalMavenCacheDir = new File(LOCAL_MAVEN_CACHE_HOME, subPath)
                 delete myLocalMavenCacheDir
-                ARLog "delete cached dir: $myLocalMavenCacheDir"
+                ARLog("delete cached dir: $myLocalMavenCacheDir")
             }
         }
     }
