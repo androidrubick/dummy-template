@@ -8,6 +8,8 @@ android {
     defaultConfig {
         minSdkVersion MIN_SDK_VERSION as int
         targetSdkVersion TARGET_SDK_VERSION as int
+
+        buildConfigField "String", "ProjectEncoding", "\"UTF-8\""
     }
     buildTypes {
         debug {
