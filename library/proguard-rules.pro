@@ -23,12 +23,3 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-# 如果包括动态加载的逻辑，则不进行任何优化
-
--keep public class com.vip.sdk.makeup.android.vsface.* {
-    public protected *;
-}
-
--keep public class com.vip.sdk.makeup.android.vsface.external.* {
-    public protected *;
-}
