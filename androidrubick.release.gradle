@@ -62,9 +62,9 @@ afterEvaluate { project ->
 
                 developers {
                     developer {
-                        id 'yong.yin'
+                        id 'bblue000'
                         name 'Yin Yong'
-                        email 'yong.yin@androidrubick.pub'
+                        email 'yy15151877621@126.com'
                     }
                 }
             }

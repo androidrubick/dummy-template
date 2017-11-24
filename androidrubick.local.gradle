@@ -40,8 +40,11 @@ if (!localRepoDir.exists()) {
 }
 def localRepoUrl = 'file://' + localRepoDir + '/'
 rootProject.extensions.add('LOCAL_MAVEN_CACHE_HOME', localMavenCacheHome.absolutePath)
+rootProject.extensions.add('LOCAL_REPO_HOME', localRepoDir.absolutePath)
 rootProject.extensions.add('LOCAL_REPO_URL', localRepoUrl)
 
+ARLog("LOCAL_REPO_URL: $LOCAL_MAVEN_CACHE_HOME")
+ARLog("LOCAL_REPO_URL: $LOCAL_REPO_HOME")
 ARLog("LOCAL_REPO_URL: $LOCAL_REPO_URL")
 
 def static validProject(project) {

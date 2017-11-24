@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
-apply from: project.file('../androidrubick.module.gradle')
-apply from: project.file('../androidrubick.release.gradle')
+// use root project's module gradle script
+apply from: rootProject.file('androidrubick.module.gradle')
 
 project.group = MAVEN_PROJECT_GROUP
 version = MAVEN_PROJECT_VERSION
@@ -21,4 +21,12 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+}
+
+if (propertyTrue('AR_SINGLE_LIB')) {
+    ARLog('single library mode')
+    // use root project's module gradle script
+    apply from: project.file('../androidrubick.release.gradle')
+} else {
+    ARLog('include for external project mode')
 }
