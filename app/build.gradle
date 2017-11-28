@@ -4,7 +4,7 @@ apply from: project.file('../androidrubick.module.gradle')
 android {
 
     defaultConfig {
-        applicationId "com.vip.makeup.sdk.resource.demo"
+        applicationId "pub.androidrubick.demo"
         versionCode 1
         versionName "1.0"
 
