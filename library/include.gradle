@@ -1,16 +1,20 @@
 
-
 def gradlePropertiesFile = file('./gradle.properties')
 
-Properties properties = new Properties()
-// local.properties file in the root director
-properties.load(gradlePropertiesFile.newDataInputStream())
-def moduleName = properties.getProperty("MAVEN_POM_ARTIFACT_ID")
+if (gradlePropertiesFile.isFile()) {
+    // local.properties file in the root director
+    properties.load(gradlePropertiesFile.newReader())
+    Properties properties = new Properties()
 
-// 作为外部模块打包时，需要加上前缀
-println "[${moduleName}] module loaded"
-include ":${moduleName}"
-project(":${moduleName}").projectDir = file('../library')
+
+    def moduleName = properties.getProperty("PROJECT_POM_ARTIFACT_ID")
+
+    // 作为外部模块打包时，需要加上前缀
+    println "[${moduleName}] module loaded"
+    include ":${moduleName}"
+    project(":${moduleName}").projectDir = file('../library')
+}
+
 
 
 
