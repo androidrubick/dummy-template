@@ -1,9 +1,5 @@
-apply from: AR_EXTRAS.LIB_MODULE_TEMPLATE_SCRIPT
+apply from: AR_EXTRAS.RELEASE_LIB_MODULE_SCRIPT
 
-if (propertyTrue('AR_SINGLE_LIB')) {
-    ARLog('single library mode')
-    // use root project's module gradle script
-    apply from: AR_EXTRAS.MODULE_RLEASE_TEMPLATE_SCRIPT
-} else {
-    ARLog('include for external project mode')
+dependencies {
+
 }
